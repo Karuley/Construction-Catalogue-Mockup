@@ -1,0 +1,101 @@
+
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+body{background-color: rgb(212, 212, 212);
+    font-family: Roboto; max-width: 80%;}
+
+.container {padding: 16px;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+a {color: dodgerblue;}
+
+.signin {
+  background-color: darkseagreen;
+  text-align: center;
+  color: aliceblue;
+  max-width: 30%;
+  border-radius: 20px;
+}
+
+.responsive {max-width: 100%;height: auto;
+  float: center;
+  }
+  .margin_box{max-width: 800px; margin: auto;}
+  h1{text-align: center; margin: 5%;}
+  .box_border{border-style: solid; border-width: 5px; 
+    border-color: #1b4571; margin: 5%;}
+  h4{margin: 3%;}
+  .submit_btn{background-color: green; color: aliceblue; max-width: 30%; 
+    margin: auto; margin-bottom: 5%; margin-top: 5%;}
+
+    </style>
+</head>
+<body>
+  <div class="responsive">
+    <img class="responsive" src="/images/images/banner.png">
+  </div>
+  <hr>
+
+
+  
+  <div class="margin_box">
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="box_border">
+        <h1>Register</h1>
+        <p style="text-align: center;">Please fill in this form to create an account.</p>
+        <hr>
+        <div class="container">
+    {{form.as_p}}
+    <hr>
+    <div style="background-color: darkseagreen; border-radius: 10px;">
+      <hr style="color: darkseagreen; margin: 5%;">
+    <p style="text-align: center; color: aliceblue;" >By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <input type="submit" name="Create User" class="submit_btn">
+    <hr style="color: darkseagreen; margin: 5%;">
+
+      </div>
+      </form>
+      </div>
+    </div>
+      <div class="container signin">
+    <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+  </div>
+    
+</body>
+
+<script>
+
+ var form_fields = document.getElementsByTagName('input')
+ form_fields[1].placeholder='Username...';
+ form_fields[2].placeholder='Email...';
+ form_fields[3].placeholder='Enter password...';
+ form_fields[4].placeholder='Re-enter password...';
+
+ for (var field in form_fields){
+    form_fields[field].className += ' form-control'
+
+}
+
+
+
+</script>
+</html>
+{% endblock %}

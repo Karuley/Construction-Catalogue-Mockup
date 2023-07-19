@@ -1,0 +1,100 @@
+
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+body{background-color: rgb(212, 212, 212);
+    font-family: Roboto; max-width: 80%;}
+
+.container {padding: 16px;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+a {color: dodgerblue;}
+
+.signin {
+  background-color: darkseagreen;
+  text-align: center;
+  color: aliceblue;
+  max-width: 30%;
+  border-radius: 20px;
+}
+
+.responsive {max-width: 100%;height: auto;
+  float: center;
+  }
+  .margin_box{max-width: 600px; margin: auto;}
+  h1{text-align: center; margin: 5%;}
+  .box_border{border-style: solid; border-width: 5px; 
+    border-color: #1b4571; margin: 5%;}
+  h4{margin: 3%;}
+
+  .submit_btn{background-color: green; color: aliceblue; max-width: 30%; 
+    margin: auto; margin-bottom: 5%; margin-top: 5%;}
+
+    </style>
+</head>
+<body>
+  <div class="responsive">
+    <img class="responsive" src="/images/images/banner.png">
+  </div>
+  <hr>
+
+  <div class="margin_box">
+  <h1>Log In</h1>
+  <p style="text-align: center;">Please enter your username and password.</p>
+  <hr>
+  
+  <div class="box_border">
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container">
+        <h4>Username</h4>
+        <input type="text" name="username" placeholder="Username...">
+        <h4>Password</h4>
+        <input type="password" name="password" placeholder="Password...">
+        <hr style="max-width: 70%; margin: auto;">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </div>
+        <input type="submit" value="Login" class="submit_btn">
+      </form>
+    </div>
+    </div>
+    <div class="container signin">
+      <p>Don't have an account? <a href="{% url 'register' %}">Register</a>.</p>
+    </div>
+</body>
+
+<script>
+
+ var form_fields = document.getElementsByTagName('input')
+ form_fields[1].placeholder='Username...';
+ form_fields[2].placeholder='Enter password...';
+
+
+ for (var field in form_fields){
+    form_fields[field].className += ' form-control'
+
+}
+
+
+
+</script>
+</html>
+{% endblock %}

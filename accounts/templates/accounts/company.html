@@ -1,0 +1,139 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<style>
+
+.col {
+  color: #4a74a1; 
+  background-color: whitesmoke; 
+  border-style: solid;
+  border-width: 10px;
+  border-color: rgb(212, 212, 212);
+  border-radius: 20px;
+}
+
+.col img {
+  width: 100%; 
+  height: auto; 
+  margin: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.logo{
+
+  display: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.card {
+  border-style: solid !important;
+  border-radius: 40px !important;
+  background-color:antiquewhite;
+  color: #4a74a1;
+}
+
+.card-img-top{
+  max-width: 20%; 
+  height: auto;
+  object-fit: cover;
+  object-position: left top;
+  float: right;
+  margin-right: 10%;
+}
+.card-body {
+  border-style: solid !important;
+  border-color: antiquewhite;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  background-color: whitesmoke;
+}
+.col {
+  color: #4a74a1; 
+  background-color: whitesmoke; 
+  border-style: solid;
+  border-width: 10px;
+  border-color: rgb(212, 212, 212);
+  border-radius: 20px;
+}
+
+.col img {
+  height: 200px;
+  width: 200px; 
+  margin: 3%;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: none;
+
+}
+.card-text{font-size: large;
+text-align: center;
+max-width: 70%;
+}
+
+.card-title{
+  font-weight: bold;
+}
+.card-divider{max-width: 50%; margin: auto; margin-bottom: 3%;}
+
+
+</style>
+
+<div class="card">
+  <div class="card-body">
+  <img class="card-img-top" src="{{ company.logo.url }}" >
+<div class="card-text">
+    <h1 class="card-title">{{company.name}}</h1>
+    <hr class="card-divider">
+      <p >Email: {{company.email}}</p>
+      <p >Contact: {{company.phone}}</p>
+      <p >Adress: {{company.adress}}</p>
+    <a class="btn btn-lg btn-info" href="{% url 'company_form' company.id %}" style="color: aliceblue;">Edit your company</a>
+  </div>
+  </div>
+
+
+</div>
+
+    
+
+    <hr>
+    <h2>Your products  from {{company.name}}:</h2>
+    <a class="btn btn-lg btn-info" style="color: aliceblue;" href="{% url 'product_form' company.id %}">Add products</a>
+
+    <div class="row">
+
+      {% for product in products %}
+  
+      
+        <div class="col">
+  
+          <img class="gallery_img" src="{{ product.image.url }}">
+  
+          <h2>{{product.name}}</h2>
+          <hr>
+          <h4>Preço: {{product.price}} </h4>
+          <h6>{{product.category}}</h6>
+        
+        <p style="text-align: center;" >
+          
+          <a class="btn btn-success" style="float: center;" href="{% url 'update_product' product.id %}">Mudar</a>
+          <a class="btn btn-danger" style="float: center;" href="{% url 'delete_product' product.id %}">Eliminar</a>
+
+        </p>
+  
+  
+        </div>
+  
+      {% endfor %}
+  
+    </div>
+
+    {% endblock %}

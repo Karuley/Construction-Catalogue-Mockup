@@ -1,0 +1,57 @@
+{% load static %}
+<style>
+  .nav-link:hover{
+    background-color: rgb(75, 75, 75);
+
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    
+    <div class="container-fluid">
+      
+      <img class="navbar-brand" src="/images/images/logo-color-small .png" height="50px" width="auto" >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Homepage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'catalogue' %}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'comp_catalogue' %}">Manufacturers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'contacts' %}">Contacts</a>
+          </li>
+        </ul>
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_staff %}
+                <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Log Out</button></a>
+                <p>|</p>
+                <a href=""><button type="link" class="btn btn-primary">{{request.user}}</button></a>
+              {%else%}
+                <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Log Out</button></a>
+                <p>|</p>
+                {% if request.user.company != None %}
+                  <a href="{% url 'company' user.company.id %}"><button type="link" class="btn btn-primary">{{request.user}}</button></a>
+                {% else %}
+                  <a href="{% url 'company_form' user.company.id %}"><button type="link" class="btn btn-primary">{{request.user}}</button></a>
+                {%endif%}
+          
+              {%endif%}
+            {%else%}
+            <a href="{% url 'login' %}"><button type="button" class="btn btn-success">Log In</button></a>
+            <p>|</p>
+            <a href="{% url 'register' %}"><button type="link" class="btn btn-primary">Register</button></a>
+            {%endif%}
+
+
+          
+      </div>
+    </div>
+  </nav>

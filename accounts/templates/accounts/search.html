@@ -1,0 +1,22 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    <h1>Catalogo de Produtos</h1>
+    <form method="get">
+        {{productsFilter.form}}
+    <button class="btn btn-primary" type="submit">Pesquisar</button>
+    </form>
+    <hr>
+
+        <tr>
+            <p>{{name}}</p>
+            <p>#image tba</p>
+            <tr>Preço: {{price}}</tr>
+            <tr>Categoria: {{category}}</tr>
+            <tr>Manufactor: {{.company}}</tr>
+            <td><a class="btn btn-sm btn-info" href="">Ver Produto</a></td>
+            <hr>
+        </tr>
+
+{% endblock %}

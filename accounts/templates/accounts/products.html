@@ -1,0 +1,54 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<style>
+  
+.card {
+  border-style: solid !important;
+  border-radius: 40px !important;
+  background-color:antiquewhite;
+  color: #4a74a1;
+}
+
+.card-img-top{
+  max-width: 30%; 
+  height: auto;
+  border-top-left-radius: 40px;
+
+}
+.card-body {
+  border-style: solid !important;
+  border-color: antiquewhite;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  background-color: whitesmoke;
+
+}
+.gallery_img{
+  max-width: 30%; 
+  height: auto;
+  object-fit: cover;
+  object-position: right top;
+  overflow: none;
+}
+
+</style>
+
+
+    <div class="card">
+        <img class="card-img-top gallery_img" src="{{ products.image.url }}" >
+        <div class="card-body">
+          <h2 class="card-title">{{products.name}}</h4>
+          <h4>Preço: {{products.price}}</h5>
+            <hr>
+          <h6>Categoria: {{products.category}}</h6>
+          <p class="card-text" style="max-width: 50%;">{{products.description}}</p>
+          <a class="btn btn-lg btn-info" href="{% url 'company_guest' products.company.id %}" style="color: aliceblue;">Ver Manufactor</a>
+        </div>
+      </div>
+
+
+
+{% endblock %}

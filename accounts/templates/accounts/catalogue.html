@@ -1,0 +1,75 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    <style>
+.col {
+  color: #4a74a1; 
+  background-color: whitesmoke; 
+  border-style: solid;
+  border-width: 10px;
+  border-color: rgb(212, 212, 212);
+  border-radius: 20px;
+}
+
+.col img {
+  height: 200px;
+  width: 200px; 
+  margin: 3%;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: none;
+
+}
+.title{
+  background-color: aliceblue; 
+  color: #4a74a1; border-radius: 20px;
+  margin: 3%;
+  text-align: center;
+}
+
+    </style>
+<div class="title" >
+  <br>
+  <h1>Catalogo de Produtos</h1>
+  <br>
+
+</div>
+
+<hr>
+<div class=".container">
+  <form method="get">
+      {{productsFilter.form}}
+  <button class="btn btn-primary" type="submit">Pesquisar</button>
+
+  </form>
+  <hr>
+    <div class="row">
+
+        {% for product in catalogue %}
+    
+          <div class="col" >
+            <div>
+
+            <img  src="{{ product.image.url }}">
+
+            <h2>{{product.name}}</h2>
+            <hr>
+            <h4>Preço {{product.price}}</h4>
+            <h6>{{product.category}}</h6>
+          </div>
+            <div style="text-align: center; bottom: 0%;">
+
+              <p><a class="btn btn-info bt-lg" style="color: aliceblue;" href="{% url 'products' product.id %}">View</a></p>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    
+      </div>
+
+
+{% endblock %}
