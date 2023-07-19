@@ -18,8 +18,10 @@
   }
 
   .hometext{
-    margin: 3%; text-align: justify;
+    margin: auto; text-align: justify;
   }
+
+
 </style>
   <div class="responsive">
   <img class="responsive" src="/images/images/banner.png">
@@ -56,6 +58,7 @@
         <span class="carousel-control-next-icon"></span>
       </button>
     </div>
+    <div class="responsive">
     <div style="margin: 3%; align-content: center; background-color: aliceblue;">
        <hr>
       <p style="color: #1b4571; text-align: center; font-size: 300%; background-color: aliceblue;">Check out our catalogue! </p>
@@ -65,14 +68,15 @@
       <p style="text-align: center;"><a href="{% url 'register' %}"><button type="button" class="btn btn-info btn-lg" style="color: aliceblue;">I'm in!</button></a></p>
       <hr>
     </div>
+    </div>
     <div class="homebox" >
       
         
         <p style="font-size: xx-large; color: #1b4571; margin: 3%;"> What we do! </p>
         <div style="background-color:aliceblue;">
           <hr style="margin: 3%;">
-          <img src="/images/images/factory-worker-vector.jpg" style="float: right; padding: 5%;">
-      <p style="text-align: justify; max-width: 40%; margin: 3%;" >
+          <img src="/images/images/factory-worker-vector.jpg" style="flex: auto; padding: 5%; float: right;">
+      <p style="text-align: justify; max-width: 100%; width: 40%; margin: 3%; flex: auto;" >
         One morning, when Gregor 
         Samsa woke from troubled dreams, 
         he found himself transformed in his
