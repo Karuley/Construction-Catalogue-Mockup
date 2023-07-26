@@ -15,11 +15,10 @@ import os
 from django.urls import URLPattern
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
-MEDIA_URL = '/images/'
-STATIC_URL = '/static/'
+DEBUG = False
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,9 +28,12 @@ STATIC_URL = '/static/'
 SECRET_KEY = 'django-insecure-d#p5+_csvh4jio7-29tcnbt!+dflfm16szaf&@!^pe8n0#!f)y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = []
+
+
+
+ALLOWED_HOSTS = ['birbgrandma.eu.pythonanywhere.com']
 
 
 # Application definition
@@ -128,14 +130,14 @@ USE_TZ = True
 
 MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [ 
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATICFILES_DIRS = [ 
-    BASE_DIR / "accounts/static", 
-    
+STATICFILES_DIRS = [
+    BASE_DIR / "accounts/static",
 
-    # '/var/www/static/', 
+
+    # '/var/www/static/',
 ]
 
 import os
@@ -146,5 +148,31 @@ MEDIA_ROOT= os.path.join(BASE_DIR,'')"""
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+#STATIC_URL = ‘/static/’
+
+#MEDIA_URL = ‘/media/’
+
+#STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
+
+#MEDIA_ROOT = os.path.join(BASE_DIR, ‘media’)
+
+
+STATIC_URL = '/images/'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'images2')
+
+
+
+#    STATICFILES_DIRS = '/home/birbgrandma/Construction-Catalogue-Mockup/images2/images',
+
+
+else:
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+    MEDIA_URL = '/images/'
 
 
