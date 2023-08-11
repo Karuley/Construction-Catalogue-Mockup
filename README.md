@@ -2,7 +2,8 @@
 # ENG
 
 
-# LIVE SITE: https://birbgrandma.eu.pythonanywhere.com/﻿
+# LIVE SITE: 
+# https://birbgrandma.eu.pythonanywhere.com
 
 DISCLAIMER: This website is purely a mockup, all information on companies, users and products is fake.
 
