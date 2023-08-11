@@ -1,12 +1,11 @@
-ENG
+# Construction-Catalogue-Mockup
+# ENG
 
 
-LIVE SITE: https://birbgrandma.eu.pythonanywhere.com/﻿
+# LIVE SITE: https://birbgrandma.eu.pythonanywhere.com/﻿
 
 DISCLAIMER: This website is purely a mockup, all information on companies, users and products is fake.
 
-
-# Construction-Catalogue-Mockup
 
 === This project was developed for learning purposes under IEFP Python Programming Course ===
 
@@ -22,15 +21,13 @@ Most editing/adding functionality related to products is disabled on the live si
 
 
 
-PT
+# PT
 
 
-SITE AO VIVO: https://birbgrandma.eu.pythonanywhere.com/﻿
+# SITE AO VIVO: https://birbgrandma.eu.pythonanywhere.com/﻿
 
 AVISO LEGAL: Este site é puramente uma maquete, todas as informações sobre empresas, usuários e produtos são falsas.
 
-
-# Construction-Catalogue-Mockup
 
 === Este projeto foi desenvolvido puramente para fins de aprendizagem durante o Curso de Programação Python do IEFP ===
 
